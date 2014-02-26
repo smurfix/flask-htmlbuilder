@@ -422,9 +422,9 @@ class HasBlock(BaseHasElement):
 
 
 class BlockElement(BaseElement):
-    """`html.block` is used for retreiving already populated blocks from the
+    """`html.block` is used for retrieving already populated blocks from the
     `g.blocks` dictionary.  It is a shortcut method for `g.blocks.get` with
-    the small difference that it returns a block element on it's own like the
+    the small difference that it returns a block element on its own like the
     other `html` instance methods.
     
     The following call::
@@ -486,7 +486,7 @@ class BlockElement(BaseElement):
 
 class HasAttr(BaseHasElement):
     """`html.has_attr` checks whether a given key exists in the
-    `g.attrs` dictionary and if so then it returns specified child elements.
+    `g.attrs` dictionary. If so, it returns the specified child elements.
     
     The following function::
         
@@ -503,7 +503,7 @@ class HasAttr(BaseHasElement):
                 html.meta(name='description', content=Attr('description'))
             )
     
-    It is used usually in conjunction with :class:`Attr`.
+    It is usually used in conjunction with :class:`Attr`.
     """
     def render(self, level):
         if g.attrs.has_key(self._name):
@@ -545,7 +545,7 @@ def _render_string(string, level):
 
 
 def _render_iteratable(iteratable, level):
-    """Renders iteratable sequence of HTML elements."""
+    """Renders an iteratable sequence of HTML elements."""
     return ''.join([render(element, level) for element in iteratable])
 
 
@@ -588,7 +588,7 @@ def _unmangle_attribute_name(name):
 
 
 def escape(string, quote=False):
-    """Standard HTML text escaping, but protecting against the agressive
+    """Standard HTML text escaping, but protecting against the aggressive
     behavior of Jinja 2 `Markup` and the like.
     """
     if string is None:
@@ -605,7 +605,7 @@ DEFAULT_TEMPLATE_NAME = 'default'
 
 
 def render_template(template_name=DEFAULT_TEMPLATE_NAME):
-    """Renders the HTML document based on the template hierarchy taking into
+    """Renders the HTML document based on the template hierarchy, taking into
     account internally which view function is processing the request.
     
     The :func:`render_template` function accepts the following arguments:
@@ -638,12 +638,12 @@ def root_block(template_name=DEFAULT_TEMPLATE_NAME):
 
 
 def block(context_name, parent_block_func, view_func=None):
-    """A decorator that is used for inserting the decorated block function in
+    """A decorator that is used for inserting the decorated block function into
     the block template hierarchy.
     
     The :func:`block` decorator accepts the following arguments:
     
-    :param context_name: key in the `g.blocks` dictionary in which the result
+    :param context_name: key in the `g.blocks` dictionary to which the result
                          of the decorated block function will be stored for
                          further processing by the parent block function
                          `parent_block_func`.
@@ -666,8 +666,8 @@ def block(context_name, parent_block_func, view_func=None):
 
 
 class Block(object):
-    """In conjunction with :class:`Context` works exactly like the
-    :func:`block` decorator, but as an alternative approach that is described
+    """In conjunction with :class:`Context`, works exactly like the
+    :func:`block` decorator, but as an alternate approach that is described
     in the documentation of :class:`RootBlock`.
     """
     __slots__ = ['endpoint', 'block_func', 'contexts']
@@ -722,8 +722,8 @@ class Block(object):
 
 
 class RootBlock(Block):
-    """Works exactly like the :func:`root_block` decorator, but is used for the
-    alternative approach to defining template block inheritance.
+    """Works exactly like the :func:`root_block` decorator, but is used as an
+    alternate approach to defining template block inheritance.
     
     Basically for the following view functions::
         
