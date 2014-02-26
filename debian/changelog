@@ -1,4 +1,10 @@
-flask-htmlbuilder (0.4-1) smurf; urgency=low
+flask-htmlbuilder (0.4+git1-02a95b42e-2) smurf; urgency=low
+
+  * Doc fixes
+
+ -- Matthias Urlichs <matthias@urlichs.de>  Wed, 26 Feb 2014 06:56:53 +0100
+
+flask-htmlbuilder (0.4+git1-02a95b42e-1) smurf; urgency=low
 
   * source package automatically created by stdeb 0.6.0+git
 
